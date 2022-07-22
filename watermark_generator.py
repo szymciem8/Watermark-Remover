@@ -5,7 +5,7 @@ import math
 import numpy as np
 import os
 
-def create_watermark(image, text, x, y, font_size=12, alpha=100):
+def create_watermark(image, text, x, y, font_size=12, alpha=100) -> Image:
 
     image = image.convert("RGBA")
 
@@ -20,7 +20,7 @@ def create_watermark(image, text, x, y, font_size=12, alpha=100):
     return combined
 
 
-def create_watermark_net(image, text):
+def create_watermark_net(image, text) -> Image:
     PT2PX = 1.33
     width, height = image.size
     
@@ -54,7 +54,7 @@ def create_watermark_net(image, text):
     image = Image.alpha_composite(image, txt)
     return image
 
-def generate_random_text():
+def generate_random_text() -> str:
     
     # Get set of characters -> 1..9 + a..b + A..B
     ascii_subset = np.concatenate((np.arange(48,57), np.arange(65,90), np.arange(97,122)))
@@ -84,7 +84,7 @@ def generate_dataset(dir_dataset):
             img.save(save_path)
         else:
             continue
-
+        
 
 if __name__ == "__main__":
 
@@ -93,6 +93,3 @@ if __name__ == "__main__":
     # output_dir
 
     generate_dataset("dataset/images")
-    
-    pass 
-
