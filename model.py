@@ -4,7 +4,7 @@ from tensorflow import keras
 from tensorflow.keras import layers, models
 
 
-def cnn_model(img_size, image_width=256, image_heigh=256):
+def cnn_model(img_size):
     """_summary_
     Creates CNN model. 
 
@@ -19,7 +19,7 @@ def cnn_model(img_size, image_width=256, image_heigh=256):
     
     
     model = models.Sequential()
-    model.add(layers.Conv2D(32, (3,3), activation="relu", input_shape=(image_width, image_heigh, 3)))
+    model.add(layers.Conv2D(32, (3,3), activation="relu", input_shape=(img_size[0], img_size[1], 3)))
     model.add(layers.Conv2D(64, (3,3), activation="relu"))
     model.add(layers.Conv2D(128, (3,3), activation="relu"))
     model.add(layers.Conv2D(256, (3,3), activation="relu"))
@@ -28,3 +28,6 @@ def cnn_model(img_size, image_width=256, image_heigh=256):
     
     return model
 
+
+if __name__ == "__main__":
+    pass

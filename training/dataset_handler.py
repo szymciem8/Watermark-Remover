@@ -21,7 +21,7 @@ class WatermarkedImages(keras.utils.Sequence):
         return len(self.output_img_paths) // self.batch_size
 
     def __getitem__(self, idx):
-        """Returns tupel (input, output) correspond to batch idx"""
+        """Returns tuple (input, output) that corresponds to batch idx"""
         
         i = idx * self.batch_size
         batch_input_image_paths = self.input_img_paths[i : i + self.batch_size]
@@ -68,8 +68,3 @@ if __name__ == "__main__":
 
     for input_path, output_path in zip(input_img_paths[:10], output_img_paths[:10]):
         print(input_path, "|", output_path)
-
-    # Split dataset
-
-
-
