@@ -28,13 +28,13 @@ class WatermarkedImages(keras.utils.Sequence):
         batch_output_image_paths = self.output_img_paths[i : i + self.batch_size]
         x = np.zeros((self.batch_size,) + self.img_size + (3,), dtype="float32")
         for j, path in enumerate(batch_input_image_paths):
-            img = load_img(path, target_size=self.img_size)
-            x[j] = img
+            img = np.array(keras.preprocessing.image.img_to_array(load_img(path, target_size=self.img_size)))
+            x[j] = img/255.0
             
         y = np.zeros((self.batch_size,) + self.img_size + (3,), dtype="float32")
         for j, path in enumerate(batch_output_image_paths):
-            img = load_img(path, target_size=self.img_size)
-            y[j] = img
+            img = np.array(keras.preprocessing.image.img_to_array(load_img(path, target_size=self.img_size)))
+            y[j] = img/255.0
             
         return x, y
 

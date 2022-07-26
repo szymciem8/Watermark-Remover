@@ -59,7 +59,7 @@ if __name__ == "__main__":
     
     # Load and train the model
     model = cnn_model(img_size)
-    model.compile(optimizer="rmsprop", loss="sparse_categorical_crossentropy")
+    model.compile(optimizer="Adam", loss="mse")
     
     callbacks = [
         keras.callbacks.ModelCheckpoint("watermark_remover.h5", save_best_only=True)
