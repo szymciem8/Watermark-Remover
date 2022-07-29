@@ -5,6 +5,8 @@ import math
 import numpy as np
 import os
 
+from sklearn import datasets
+
 def create_watermark(image, text, x, y, font_size=12, alpha=100) -> Image:
 
     image = image.convert("RGBA")
@@ -66,20 +68,22 @@ def generate_random_text() -> str:
     return text
 
 def generate_dataset(dir_dataset):
-    ext = (".jpg", ".png")
+    ext = (".jpg", ".png", ".jpeg")
     
     parent_dir = os.path.dirname(dir_dataset)
+    print(parent_dir)
 
     if not os.path.exists(os.path.join(parent_dir, "labeled")):
         os.mkdir(os.path.join(parent_dir, "labeled"))
         
-
+    print(len(os.listdir(dir_dataset)))
+        
     for file in os.listdir(dir_dataset):
         if file.endswith(ext):
             img = Image.open(os.path.join(dir_dataset,file))
             img = create_watermark_net(img, generate_random_text())
             img = img.convert('RGB')
- 
+
             save_path = os.path.join(os.path.dirname(dir_dataset), "labeled/"+file) 
             img.save(save_path)
         else:

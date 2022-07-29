@@ -3,6 +3,8 @@ import os
 from tensorflow import keras
 from tensorflow.keras.utils import load_img
 import numpy as np
+from training.dataset.watermark_generator import *
+from training.watermark_generator import create_watermark, create_watermark_net
 
 class WatermarkedImages(keras.utils.Sequence):
     """_summary_
@@ -37,6 +39,26 @@ class WatermarkedImages(keras.utils.Sequence):
             y[j] = img/255.0
             
         return x, y
+    
+    
+class HotWatermarkedImages(WatermarkedImages):
+    
+    def __getitem__(self, idx):
+        i = idx * self.batch_size
+        batch_input_image_paths = self.input_img_paths[i : i + self.batch_size]
+        batch_output_image_paths = self.output_img_paths[i : i + self.batch_size]
+        x = np.zeros((self.batch_size,) + self.img_size + (3,), dtype="float32")
+        for j, path in enumerate(batch_input_image_paths):
+            img = np.array(keras.preprocessing.image.img_to_array(load_img(path, target_size=self.img_size)))
+            x[j] = img
+            
+        y = np.zeros((self.batch_size,) + self.img_size + (3,), dtype="float32")
+        for j, path in enumerate(batch_output_image_paths):
+            img = np.array(keras.preprocessing.image.img_to_array(load_img(path, target_size=self.img_size)))
+            y[j] = create_watermark_net(x[j], generate_random_text())
+            
+        return x/255.0, y/255.0
+    
 
 if __name__ == "__main__":
 
