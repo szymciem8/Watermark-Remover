@@ -1,10 +1,10 @@
-# import tensorflow as tf
 import os
 from tensorflow import keras
 from tensorflow.keras.utils import load_img
 import numpy as np
-from training.dataset.watermark_generator import *
-from training.watermark_generator import create_watermark, create_watermark_net
+import boto3
+
+from watermark_generator import create_watermark, create_watermark_net, generate_random_text
 
 class WatermarkedImages(keras.utils.Sequence):
     """_summary_
@@ -59,6 +59,22 @@ class HotWatermarkedImages(WatermarkedImages):
             
         return x/255.0, y/255.0
     
+    
+class HotWatermarkedImages(keras.utils.Sequence):
+    
+    def __init__(self, batch_size, img_size):
+        # Get S3 bucket
+        
+        
+        
+        pass
+    
+    def __len__():
+        pass
+    
+    def __getitem__(self, idx):
+        
+        pass
 
 if __name__ == "__main__":
 

@@ -1,6 +1,9 @@
 FROM python:3.8-slim-buster
 
-WORKDIR /DockerTest
+ADD . /home/
+WORKDIR /home
+
+# RUN --mount=type=secret,id=env soruce /run/secrets/env
 
 COPY requirements.txt .
 
