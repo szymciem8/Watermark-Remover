@@ -1,13 +1,23 @@
-import cv2
 from PIL import Image, ImageDraw, ImageFont
 import random
 import math
 import numpy as np
 import os
 
-from sklearn import datasets
-
 def create_watermark(image, text, x, y, font_size=12, alpha=100) -> Image:
+    """_summary_
+    Create a single watermark. 
+    Args:
+        image (_type_): _description_
+        text (_type_): _description_
+        x (_type_): _description_
+        y (_type_): _description_
+        font_size (int, optional): _description_. Defaults to 12.
+        alpha (int, optional): _description_. Defaults to 100.
+
+    Returns:
+        Image: _description_
+    """
 
     image = image.convert("RGBA")
 
@@ -22,8 +32,20 @@ def create_watermark(image, text, x, y, font_size=12, alpha=100) -> Image:
     return combined
 
 
-def create_watermark_net(image, text) -> Image:
+def create_watermark_net(image, text):
+    """_summary_
+    Create a net of watermarks on an image. 
+    Args:
+        image (_type_): _description_
+        text (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     PT2PX = 1.33
+    
+    image = Image.fromarray(np.uint8(image*255))
+    
     width, height = image.size
     
     font_size = random.randint(10,15)
@@ -54,6 +76,7 @@ def create_watermark_net(image, text) -> Image:
         row += 1
 
     image = Image.alpha_composite(image, txt)
+    image = np.array(image.convert("RGB"))
     return image
 
 def generate_random_text() -> str:
@@ -91,9 +114,4 @@ def generate_dataset(dir_dataset):
         
 
 if __name__ == "__main__":
-
-    # Some parameters
-    # input_dir
-    # output_dir
-
     generate_dataset("dataset/images")

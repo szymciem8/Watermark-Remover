@@ -7,3 +7,4 @@ jupyterlab
 tensorflow
 tensorboard
 boto3
+Pillow
