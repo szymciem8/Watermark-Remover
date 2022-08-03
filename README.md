@@ -6,18 +6,19 @@ python3 watermark_remover.py --image input.png
 ```
 
 **Exmaple**
-<img
-  src="test_images/input.png"
-  alt="Befor"
-  title="Before"
-  style="display: inline-block; margin: 0 auto; max-width: 100px">
-  
-<img
-  src="test_images/output.png"
-  alt="Befor"
-  title="Before"
-  style="display: inline-block; margin: 0 auto; max-width: 100px">
+<p float="left">
+  <img
+    src="test_images/input.png"
+    alt="Befor"
+    title="Before"
+    style="display: inline-block; margin: 0 auto; max-width: 100px">
 
+  <img
+    src="test_images/output.png"
+    alt="Befor"
+    title="Before"
+    style="display: inline-block; margin: 0 auto; max-width: 100px">
+</p>
 
 Open-source application for watermark removal based on CNN. 
 
