@@ -1,6 +1,6 @@
 # Watermark-Remover
 
-https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white
+![image]({https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white})
 
 Open-source application for watermark removal based on CNN. 
 
