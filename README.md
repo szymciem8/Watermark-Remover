@@ -9,29 +9,14 @@ python3 watermark_remover.py --image input.png
 
 <table>
   <tr>
-    <td>First Screen Page</td>
-     <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
+     <td>Before</td>
+     <td>After</td>
   </tr>
   <tr>
     <td><img src="test_images/input.png" width=400></td>
     <td><img src="test_images/output.png" width=400></td>
   </tr>
  </table>
-
-<p float="left">
-  <img
-    src="test_images/input.png"
-    alt="Before"
-    title="Before"
-    width="250">
-
-  <img
-    src="test_images/output.png"
-    alt="Befor"
-    title="Before"
-    width="250">
-</p>
 
 Open-source application for watermark removal based on CNN. 
 
