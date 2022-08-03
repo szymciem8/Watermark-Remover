@@ -13,8 +13,8 @@ python3 watermark_remover.py --image input.png
      <td>After</td>
   </tr>
   <tr>
-    <td><img src="test_images/input.png" width=425></td>
-    <td><img src="test_images/output.png" width=425></td>
+    <td><img src="test_images/input.png" width=450></td>
+    <td><img src="test_images/output.png" width=450></td>
   </tr>
  </table>
 
