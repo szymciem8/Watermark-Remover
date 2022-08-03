@@ -52,7 +52,7 @@ def create_watermark_net(image, text):
 
     image = image.convert("RGBA")
     txt = Image.new('RGBA', image.size, (255,255,255,0))
-    font = ImageFont.truetype("raleway/Raleway-Black.ttf", font_size)
+    font = ImageFont.truetype("dataset/raleway/Raleway-Black.ttf", font_size)
     d = ImageDraw.Draw(txt)    
 
     min = math.ceil(len(text)*font_size*PT2PX)

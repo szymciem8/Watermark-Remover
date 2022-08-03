@@ -7,7 +7,7 @@ import boto3
 from PIL import Image
 import io
 
-from watermark_generator import create_watermark, create_watermark_net, generate_random_text
+from dataset.watermark_generator import create_watermark, create_watermark_net, generate_random_text
 
 class WatermarkedImages(keras.utils.Sequence):
     """_summary_
@@ -71,7 +71,7 @@ class HotWatermarkedImagesS3(keras.utils.Sequence):
         keras (_type_): _description_
     """
     
-    def __init__(self, bucket, batch_size, img_size, dir_name=""):
+    def __init__(self, bucket, batch_size, img_size, dir_name="images"):
         self.bucket = bucket
         self.batch_size = batch_size
         self.img_size = img_size

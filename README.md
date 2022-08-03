@@ -1,18 +1,19 @@
 # Watermark-Remover
+## How to use
+
+```python
+python3 watermark_remover.py --image input.png
+```
+
+**Exmaple**
+![alt text](test_images/input.png "Before")
+![alt text](test_images/input.png "After")
+
 
 Open-source application for watermark removal based on CNN. 
 
-
-
-
-
-
-
-
-
 ## Docker
-
-Application can be run through docker. 
+Application can be run with docker. 
 
 ### Build
 
@@ -21,7 +22,6 @@ docker build . -t watermark_remover
 ```
 
 ### Run
-
 ```bash
 docker run -v$(pwd):/home -p 8888:8888 watermark_remover
 ```
